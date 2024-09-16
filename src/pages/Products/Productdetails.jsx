@@ -46,9 +46,8 @@ export const loaders = async (arg) => {
     const res = await axiosInstance.get(`products/${arg.params.id}`)
     return res.data
 }
-export const err=()=>{
-    const error=useRouteError()
-    return <h1>error: {error.message}</h1>
-    
-
-}
+export const ErrorBoundary=()=> {
+    const error = useRouteError();
+    console.error(error);
+    return <div>{error.message}</div>;
+  }

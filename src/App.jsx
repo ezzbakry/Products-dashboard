@@ -16,7 +16,7 @@ import Contact from './pages/Contact/Contact'
 import Notfound from './pages/Notfound/Not'
 import Values from './pages/Aboutus/Values/Values'
 import Vision from './pages/Aboutus/Vision/Vision'
-import Productdetails, { err , loaders as loaderdetails } from './pages/Products/Productdetails'
+import Productdetails, { ErrorBoundary,loaders as loaderdetails } from './pages/Products/Productdetails'
 import Products from './pages/Products/Products'
 import { Provider, useSelector } from 'react-redux'
 import store from './Store/store'
@@ -42,7 +42,7 @@ function App() {
 
         { path: "contact", element: <Contact /> },
         { path: "products", element: <Products /> },
-        { path: "productDetails/:id", element: <Productdetails />,loader:loaderdetails,errorElement:<h1>error</h1> }
+        { path: "productDetails/:id", element: <Productdetails />,loader:loaderdetails,errorElement:<ErrorBoundary></ErrorBoundary> }
       ],
     },
     { path: "*", element: <Notfound /> }, ,
