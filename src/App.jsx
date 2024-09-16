@@ -16,11 +16,14 @@ import Contact from './pages/Contact/Contact'
 import Notfound from './pages/Notfound/Not'
 import Values from './pages/Aboutus/Values/Values'
 import Vision from './pages/Aboutus/Vision/Vision'
-import Productdetails, { ErrorBoundary,loaders as loaderdetails } from './pages/Products/Productdetails'
+import Productdetails, { ErrorBoundary, loaders as loaderdetails } from './pages/Products/Productdetails'
 import Products from './pages/Products/Products'
 import { Provider, useSelector } from 'react-redux'
 import store from './Store/store'
 import AppLayout from './Applayout'
+import { Colorprovider } from './context/color'
+import { FontProvidor } from './context/fontcol'
+import { Nameprovider } from './context/name'
 
 
 
@@ -28,6 +31,10 @@ function App() {
   // const [count, setCount] = useState(0)
   // const lang = useSelector((lang) => lang.language.language)
   // console.log(lang)
+  const [col, setcol] = useState("white")
+  const [fontcol, setfontcol] = useState("black")
+  const [Name, setname] = useState("Ezz")
+
   const routes = createBrowserRouter([
     {
       path: "/", element: <AppLayout></AppLayout>, children: [
@@ -42,7 +49,7 @@ function App() {
 
         { path: "contact", element: <Contact /> },
         { path: "products", element: <Products /> },
-        { path: "productDetails/:id", element: <Productdetails />,loader:loaderdetails,errorElement:<ErrorBoundary></ErrorBoundary> }
+        { path: "productDetails/:id", element: <Productdetails />, loader: loaderdetails, errorElement: <ErrorBoundary></ErrorBoundary> }
       ],
     },
     { path: "*", element: <Notfound /> }, ,
@@ -52,12 +59,20 @@ function App() {
 
   return (
     <>
+      <Colorprovider value={{ col, setcol }}>
+        <Nameprovider value={{ Name, setname }}>
+          <FontProvidor value={{ fontcol, setfontcol }}>
+            <Provider store={store}>
+              <RouterProvider router={routes}></RouterProvider>
+            </Provider>
+          </FontProvidor>
+        </Nameprovider>
+      </Colorprovider>
 
-      <Provider store={store}>
-          <RouterProvider router={routes}></RouterProvider>
-      </Provider>
 
-        {/* <BrowserRouter >
+
+
+      {/* <BrowserRouter >
 
           <Header />
           <Routes>

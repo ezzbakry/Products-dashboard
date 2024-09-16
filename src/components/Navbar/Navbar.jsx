@@ -38,21 +38,23 @@ export default class Header extends Component {
     return (
       <>
 
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg="dark" data-bs-theme="dark" >
           <Container>
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <NavLink style={{marginRight:"20px",textDecoration:"none",color:"white"}} to="/">Home</NavLink>
-              <NavLink style={{marginRight:"20px",textDecoration:"none",color:"white"}} to="/about">About</NavLink>
-              <NavLink style={{marginRight:"20px",textDecoration:"none",color:"white"}} to="/login">Login</NavLink>
-              <NavLink style={{marginRight:"20px",textDecoration:"none",color:"white"}}  to="/contact">Contact</NavLink>
-              <NavLink style={{marginRight:"20px",textDecoration:"none",color:"white"}}  to="/products">Products</NavLink>
 
+            <Nav className="me-auto">
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/">Home</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/about">About</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/contact">Contact</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/login">Login</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/products">Products</NavLink>
             </Nav>
+
           </Container>
         </Navbar>
         <br />
-        
+
+
 
         {/* <div>hello Nav</div>
         <Links name="Home"></Links>

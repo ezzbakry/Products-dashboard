@@ -5,6 +5,7 @@ import namereduce from './slices/name'
 import bgreduce from './slices/background'
 import fontreduce from './slices/font'
 import loadreduce from './slices/loader'
+import productreduce from'./slices/products'
 
 
 const store = configureStore({
@@ -14,7 +15,8 @@ const store = configureStore({
         name: namereduce,
         bg: bgreduce,
         fontcol: fontreduce,
-        load:loadreduce
+        load:loadreduce,
+        products:productreduce
 
     }
 })
