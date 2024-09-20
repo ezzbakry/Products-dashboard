@@ -1,6 +1,10 @@
+import mystyle from './Not.module.css'
+
+
 export default function Notfound(){
     return <>
-    <p>Not found</p>
+    <div className={mystyle.test}>
+    </div>
     </>
 
 }

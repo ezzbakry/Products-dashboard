@@ -9,7 +9,6 @@ import axiosInstance from "../../AxiosConfig/AxiosConfig";
 export default function Productdetails() {
     // const { id } = useParams()
     const product = useLoaderData()
-    console.log(product)
     // const [product, setproduct] = useState([])
     // useEffect(() => {
     //     async function getproductbyID() {
