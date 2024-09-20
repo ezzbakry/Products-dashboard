@@ -12,7 +12,7 @@ export default function AppLayout() {
 
     return (
         <>
-            <div dir={`${(lang == 'en') ? 'ltr' : 'rtl'}`} style={{ backgroundColor: `${(bg == "white") ? "" : "black"}`, color: `${(fontcol == "black") ? "" : "white"}`, height: "500px" }}>
+            <div dir={`${(lang == 'en') ? 'ltr' : 'rtl'}`} style={{ backgroundColor: `${(bg == "white") ? "" : "black"}`, color: `${(fontcol == "black") ? "" : "white"}`, overflowX:"hidden" }}>
                 <Header></Header>
                 <Outlet></Outlet>
             </div>
