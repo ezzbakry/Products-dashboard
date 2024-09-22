@@ -24,6 +24,7 @@ import AppLayout from './Applayout'
 import { Colorprovider } from './context/color'
 import { FontProvidor } from './context/fontcol'
 import { Nameprovider } from './context/name'
+import Register from './pages/register/register'
 
 
 
@@ -46,9 +47,9 @@ function App() {
           ]
         },
         { path: "login", element: <Login /> },
-
         { path: "contact", element: <Contact /> },
         { path: "products", element: <Products /> },
+        {path:"register",element:<Register></Register>},
         { path: "productDetails/:id", element: <Productdetails />, loader: loaderdetails, errorElement: <ErrorBoundary></ErrorBoundary> }
       ],
     },

@@ -11,9 +11,6 @@ import React from "react";
 
 export default class Header extends Component {
   constructor() {
-
-
-
     super()
     // this.state={
     //     name:"ezz"
@@ -40,7 +37,9 @@ export default class Header extends Component {
 
         <Navbar bg="dark" data-bs-theme="dark" >
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="#home">
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/">Dashboard</NavLink>
+            </Navbar.Brand>
 
             <Nav className="me-auto">
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/">Home</NavLink>
@@ -48,6 +47,8 @@ export default class Header extends Component {
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/contact">Contact</NavLink>
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/login">Login</NavLink>
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/products">Products</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/register">Register</NavLink>
+
             </Nav>
 
           </Container>

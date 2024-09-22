@@ -16,11 +16,11 @@ export default function LoginLib() {
     return <>
         <div className={mystyle.test}>
             <Form onSubmit={handleSubmit(login)}>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" >
+                {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" >
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" className={`form-control ${(errors.name)?"border-danger shadow-none":""}`} placeholder="Enter the name" {...register("name", { required: true })} />
                 </Form.Group>
-                {errors.name && <p className='text-danger'>name is required</p>}
+                {errors.name && <p className='text-danger'>name is required</p>} */}
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email address</Form.Label>
@@ -32,11 +32,11 @@ export default function LoginLib() {
                     <Form.Control className={`form-control ${errors.password?"border-danger shadow-none":""}`} type="password" placeholder="Enter the password" {...register("password", { required: true,pattern: /[._!?@=]/ })} />
                 </Form.Group>
                 {errors.password && <p className='text-danger'>invalid or required password</p>}
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Phone</Form.Label>
                     <Form.Control className={`form-control ${errors.phone?"border-danger shadow-none":""}`} type="number" placeholder="Enter the phone" {...register("phone", { required: true, pattern: /[0-9]{11}/ })} />
                 </Form.Group>
-                {errors.phone && <p className='text-danger'>invalid or required phone</p>}
+                {errors.phone && <p className='text-danger'>invalid or required phone</p>} */}
                 <Button as="input" type="submit" value="Submit" />{' '}
 
             </Form>

@@ -5,10 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../AxiosConfig/AxiosConfig";
-import Placeholder from 'react-bootstrap/Placeholder';
-import Spinner from 'react-bootstrap/Spinner';
-import { Audio } from 'react-loader-spinner'
 import { PacmanLoader } from 'react-spinners'
 import { useSelector, useDispatch } from "react-redux"
 import { productaction } from "../../Store/slices/products";
