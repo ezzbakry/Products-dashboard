@@ -61,7 +61,7 @@ export default function Register() {
                     }} className={`form-control ${errors.password ? "border-danger shadow-none" : ""}`} type="password" placeholder="Enter the password" {...register("password", {
                         required: true, onChange: (e) => {
                             setpassword(e.target.value)
-                        }, pattern: /^[a-zA-Z0-9]{3,15}[@.?-_=]/
+                        }, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).+$/
                     })} />
                 </Form.Group>
                 {errors.password && <p className='text-danger'>invalid or required password</p>}
