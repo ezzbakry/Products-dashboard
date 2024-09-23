@@ -12,16 +12,20 @@ export default function Register() {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [message, setmessage] = useState("")
-    // const load = useSelector((state) => state.load.load)
+    const [loader, setloader] = useState(false)
+
     const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange" })
 
     const Register = async (user) => {
+        setloader(true)
         try{
             const res = await axios.post("https://products-backend-nine.vercel.app/users", { name, email, password })
             setmessage(res.data.message)
             console.log(res.data)
         }catch (err){
             setmessage(err.res?.data.message||err.res.message)}
+        setloader(false)
+        
     }
     return <>
         <p> {message}</p>
@@ -66,7 +70,10 @@ export default function Register() {
                     <Form.Control className={`form-control ${errors.phone?"border-danger shadow-none":""}`} type="number" placeholder="Enter the phone" {...register("phone", { required: true, pattern: /[0-9]{11}/ })} />
                 </Form.Group>
                 {errors.phone && <p className='text-danger'>invalid or required phone</p>} */}
-                <Button as="input" type="submit" value="Register" />{' '}
+                <Button  type="submit" value="Register" disabled={loader} >
+                    {' '}
+                    {loader ? "loading...." : "Register"}
+                </Button>
             </Form>
 
 
