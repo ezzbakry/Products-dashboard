@@ -28,7 +28,7 @@ export default function Register() {
         
     }
     return <>
-        <p> {message}</p>
+        <p style={{margin:"20px"}}> {message}</p>
 
         {/* <p> {name}</p> */}
         <div className={mystyle.test}>
