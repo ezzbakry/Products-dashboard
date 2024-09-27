@@ -27,7 +27,7 @@ export default function Products() {
       <Row xs={1} md={2} className="g-4">
         {product.map((prd) => (
           <Col>
-            <Card style={{ width: "300px", marginLeft: "40px" }}>
+            <Card style={{ width: "300px", justifyContent:"center",textAlign:"center",marginLeft: "40px" ,height:"100%",paddingTop:"50px"}}>
               <Card.Img variant="top" src={prd.image} style={{ width: "150px", margin: "auto" }} />
               <Card.Body>
                 <Card.Title>{prd.title}</Card.Title>

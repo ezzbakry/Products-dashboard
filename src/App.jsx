@@ -25,6 +25,7 @@ import { Colorprovider } from './context/color'
 import { FontProvidor } from './context/fontcol'
 import { Nameprovider } from './context/name'
 import Register from './pages/register/register'
+import Protectedcomponent from './components/Guards/protectedroute'
 
 
 
@@ -47,8 +48,8 @@ function App() {
           ]
         },
         { path: "login", element: <Login /> },
-        { path: "contact", element: <Contact /> },
-        { path: "products", element: <Products /> },
+        { path: "contact", element: <Protectedcomponent><Contact /></Protectedcomponent> },
+        { path: "products", element: <Protectedcomponent><Products></Products></Protectedcomponent> },
         {path:"register",element:<Register></Register>},
         { path: "productDetails/:id", element: <Productdetails />, loader: loaderdetails, errorElement: <ErrorBoundary></ErrorBoundary> }
       ],

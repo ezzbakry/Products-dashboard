@@ -12,16 +12,22 @@ export default function Register() {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [message, setmessage] = useState("")
+    const [loader, setloader] = useState(false)
+
     // const load = useSelector((state) => state.load.load)
     const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange" })
 
     const Register = async (user) => {
-        try{
+        setloader(true)
+        try {
             const res = await axios.post("http://localhost:3000/users", { name, email, password })
             setmessage(res.data.message)
             console.log(res.data)
-        }catch (err){
-            setmessage(err.res?.data.message||err.res.message)}
+        } catch (err) {
+            setmessage(err.res?.data.message || err.res.message)
+        }
+        setloader(false)
+
     }
     return <>
         <p> {message}</p>
@@ -57,7 +63,7 @@ export default function Register() {
                     }} className={`form-control ${errors.password ? "border-danger shadow-none" : ""}`} type="password" placeholder="Enter the password" {...register("password", {
                         required: true, onChange: (e) => {
                             setpassword(e.target.value)
-                        }, pattern: /^[a-zA-Z0-9]{3,15}[@.?-_=]/
+                        }, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).+$/
                     })} />
                 </Form.Group>
                 {errors.password && <p className='text-danger'>invalid or required password</p>}
@@ -66,7 +72,10 @@ export default function Register() {
                     <Form.Control className={`form-control ${errors.phone?"border-danger shadow-none":""}`} type="number" placeholder="Enter the phone" {...register("phone", { required: true, pattern: /[0-9]{11}/ })} />
                 </Form.Group>
                 {errors.phone && <p className='text-danger'>invalid or required phone</p>} */}
-                <Button as="input" type="submit" value="Register" />{' '}
+                <Button  type="submit" value="Register" disabled={loader} >
+                    {' '}
+                    {loader ? "loading...." : "Register"}
+                </Button>
             </Form>
 
 

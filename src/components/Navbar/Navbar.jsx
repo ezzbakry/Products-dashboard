@@ -43,11 +43,11 @@ export default class Header extends Component {
 
             <Nav className="me-auto">
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/">Home</NavLink>
-              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/about">About</NavLink>
-              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/contact">Contact</NavLink>
+              {/* <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/about">About</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/contact">Contact</NavLink> */}
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/login">Login</NavLink>
-              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/products">Products</NavLink>
               <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/register">Register</NavLink>
+              <NavLink style={{ marginRight: "20px", textDecoration: "none", color: "white" }} to="/products">Products</NavLink>
 
             </Nav>
 
