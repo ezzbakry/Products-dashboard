@@ -25,7 +25,7 @@ export default function LoginLib() {
 
     const login = async (user) => {
         try {
-            const res = await axios.post("http://localhost:3000/users/login", { email, password })
+            const res = await axios.post("https://products-backend-nine.vercel.app/users/login", { email, password })
             console.log(res.data.message)
             const { token } = res.data
             localStorage.setItem('token', token)
@@ -45,7 +45,7 @@ export default function LoginLib() {
                     <Form.Control className={`form-control ${(errors.email) ? 'border-danger shadow-none' : ""}`} type="email" placeholder="name@example.com" {...register('email', {
                         required: true, onChange: (e) => {
                             setemail(e.target.value)
-                        }, pattern: /^[a-zA-Z]{3,8}[0-9]{1,3}(@)(gmail|yahoo)(.com)$/
+                        }, pattern: /^[a-zA-Z0-9]{3,9}@(gmail|yahoo)(.com)$/
                     })} />
                 </Form.Group>
                 {errors.email && <p className='text-danger'>invalid or required email</p>}
