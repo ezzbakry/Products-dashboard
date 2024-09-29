@@ -12,16 +12,20 @@ export default function Register() {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [message, setmessage] = useState("")
+    const [loader,setloader]=useState(false)
     // const load = useSelector((state) => state.load.load)
     const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange" })
 
     const Register = async (user) => {
         try{
+            setloader(true)
+
             const res = await axios.post("http://localhost:3000/users", { name, email, password })
             setmessage(res.data.message)
             console.log(res.data)
         }catch (err){
             setmessage(err.res?.data.message||err.res.message)}
+        setloader(false)
     }
     return <>
         <p style={{margin:"20px"}}> {message}</p>

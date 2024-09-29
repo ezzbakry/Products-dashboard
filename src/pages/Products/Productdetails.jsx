@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react"
 import { useLoaderData, useParams, useRouteError } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 import axiosInstance from "../../AxiosConfig/AxiosConfig";
+import Productcard from "../../components/productscards/productcards";
+import mystyle from "../Products/productdetails.module.css"
+
 
 
 
@@ -23,20 +26,11 @@ export default function Productdetails() {
     //     getproductbyID()
     // })
     return <>
-        <Card style={{ width: "400px", height: "500px", marginLeft: "40px" }}>
-            <Card.Img variant="top" src={product.image} style={{width:"200px",margin:"auto"}} />
-            <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>
-                    {product.description}
-                </Card.Text>
-            </Card.Body>
-            {/* <button className="btn btn-primary" onClick={()=>{
-                nav(`/productdetails/${prd.id}`)
+        <div className={mystyle.test}>
+            <Productcard id={product.id} title={product.title} description={product.description} image={product.image}></Productcard>
 
-            }}> details</button> */}
+        </div>
 
-        </Card>
     </>
 
 }
@@ -45,8 +39,8 @@ export const loaders = async (arg) => {
     const res = await axiosInstance.get(`products/${arg.params.id}`)
     return res.data
 }
-export const ErrorBoundary=()=> {
+export const ErrorBoundary = () => {
     const error = useRouteError();
     console.error(error);
     return <div>{error.message}</div>;
-  }
+}

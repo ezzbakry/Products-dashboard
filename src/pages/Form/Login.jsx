@@ -25,7 +25,7 @@ export default function LoginLib() {
 
     const login = async (user) => {
         try {
-            const res = await axios.post("https://products-backend-nine.vercel.app/users/login", { email, password })
+            const res = await axios.post("http://localhost:3000/users/login", { email, password })
             console.log(res.data.message)
             const { token } = res.data
             localStorage.setItem('token', token)

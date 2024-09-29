@@ -7,15 +7,31 @@ import { changebg } from "../../Store/slices/background"
 import { changecol } from "../../Store/slices/font"
 import { namecontext } from "../../context/name"
 import { useContext } from "react"
+import { useReducer } from "react"
+const initialcounter = { counter: 0 }
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'increase':
+            return { counter: state.counter + 1 }
+        case 'reset':
+            return initialcounter 
+        case 'decrease':
+            return { counter: state.counter - 1 }
+
+    }
+
+}
 
 
 export default function Home() {
     const lang = useSelector((state) => state.language.language)
     const name = useSelector((state) => state.name.name)
-    const count = useSelector((state) => state.counter.counter)
+    // const count = useSelector((state) => state.counter.counter)
     const bg = useSelector((state) => state.bg.bg)
     const f = useSelector((state) => state.fontcol.fontcol)
     const { Name, setname } = useContext(namecontext)
+    const [state, disp] = useReducer(reducer, initialcounter)
+
 
     const dispatch = useDispatch()
     const tooglename = () => {
@@ -24,12 +40,12 @@ export default function Home() {
     const togglelang = () => {
         dispatch(changeLanguage((lang == "en") ? "ar" : "en"))
     }
-    const increasecounter = () => {
-        dispatch(increaseCounter())
-    }
-    const reducecounter = () => {
-        dispatch(reduceCounter())
-    }
+    // const increasecounter = () => {
+    //     dispatch(increaseCounter())
+    // }
+    // const reducecounter = () => {
+    //     dispatch(reduceCounter())
+    // }
     const change = () => {
         dispatch(changebg((bg == "white") ? "black" : "white"))
         dispatch(changecol((f == "black") ? 'white' : "black"))
@@ -61,38 +77,49 @@ export default function Home() {
                     change language
                 </button>
             </div>
-            <div style={{ margin: "40px" }}>
-                <p>{count}</p>
+            <p style={{textAlign:"center",justifyItems:"center"}}> counter : {state.counter}</p>
+            <div style={{ marginTop: "80px" ,display:"flex",}} >
+                <div style={{marginRight:"40px"}}>
+                    <button
+                        className="btn btn-success"
+                        onClick={() => {
+                            disp({ type: "increase" })
+                        }}
+                    >
+                        Increase
+                    </button>
+                </div>
+                <div style={{marginRight:"40px"}}>
+                    {/* <p>{state.counter}</p> */}
+                    <button
+                        className="btn btn-success"
+                        onClick={() => {
+                            disp({ type: "decrease" })
+                        }}
+                    >
+                        decrease
+                    </button>
 
-                <button
-                    className="btn btn-success"
-                    onClick={() => {
-                        increasecounter();
-                    }}
-                >
-                    Increase
-                </button>
+                </div>
+                <div style={{marginRight:"40px"}}>
+                    {/* <p>{state.counter}</p> */}
+                    <button
+                        className="btn btn-success"
+                        onClick={() => {
+                            disp({ type: "reset" })
+                        }}
+                    >
+                        reset
+                    </button>
+                </div>
+
             </div>
-            <div style={{ margin: "40px" }}>
-                <p>{count}</p>
-                <button
-                    className="btn btn-success"
-                    onClick={() => {
-                        reducecounter();
-                    }}
-                >
-                    decrease
-                </button>
-
-            </div>
-
-
 
         </div>
         <div style={{ display: "flex" }}>
             <div style={{ marginLeft: "40px" }}>
 
-                <button style={{marginTop:"40px"}}
+                <button style={{ marginTop: "40px" }}
                     className="btn btn-success"
                     onClick={() => {
                         change();
