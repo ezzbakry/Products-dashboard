@@ -20,7 +20,7 @@ export default function Register() {
         try{
             setloader(true)
 
-            const res = await axios.post("http://localhost:3000/users", { name, email, password })
+            const res = await axios.post("https://products-backend-nine.vercel.app/users", { name, email, password })
             setmessage(res.data.message)
             console.log(res.data)
         }catch (err){
