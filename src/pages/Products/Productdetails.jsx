@@ -27,7 +27,7 @@ export default function Productdetails() {
     // })
     return <>
         <div className={mystyle.test}>
-            <Productcard id={product.id} title={product.title} description={product.description} image={product.image}></Productcard>
+            <Productcard id={product.id} title={product.title} description={product.description} image={product.image} price={product.price}></Productcard>
 
         </div>
 

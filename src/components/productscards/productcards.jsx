@@ -11,7 +11,7 @@ export default function Productcard({ id, title, description, image, price, addi
     const nav = useNavigate()
 
     return <>
-        <Card style={{ width: "300px", justifyContent: "center", textAlign: "center", marginLeft: "40px", height: "100%", paddingTop: "50px" }}>
+        <Card style={{ width: "300px", justifyContent: "center", textAlign: "center", marginLeft: "40px", paddingTop: "50px" }}>
             <Card.Img variant="top" src={image} style={{ width: "150px", margin: "auto" }} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

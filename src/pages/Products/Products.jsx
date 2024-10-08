@@ -43,7 +43,7 @@ export default function Products() {
     Total receipt : {total}
     {(load) ? <div className="d-flex justify-content-around">
       <PacmanLoader size={66} /></div> :
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={2} md={4} className="g-4">
         {memoiazedproducts}
 
       </Row>}
@@ -56,3 +56,4 @@ export default function Products() {
     </Pagination>
   </>
 }
+
