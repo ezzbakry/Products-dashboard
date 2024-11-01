@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
 import { changename } from '../../Store/slices/name'
 import { changeLanguage } from '../../Store/slices/language'
+import { increaseCounter } from '../../Store/slices/counter'
+import { reduceCounter } from '../../Store/slices/counter'
 import { changebg } from "../../Store/slices/background"
 import { changecol } from "../../Store/slices/font"
 import { namecontext } from "../../context/name"
@@ -36,6 +38,17 @@ export default function Home() {
     const togglelang = () => {
         dispatch(changeLanguage((lang == "en") ? "ar" : "en"))
     }
+    // const increasecounter = () => {
+    //     dispatch(increaseCounter())
+    // }
+    // const reducecounter = () => {
+    //     dispatch(reduceCounter())
+    // }
+    const change = () => {
+        dispatch(changebg((bg == "white") ? "black" : "white"))
+        dispatch(changecol((f == "black") ? 'white' : "black"))
+    }
+
     return <>
         <div style={{ display: "flex" }}>
             <div style={{ margin: "40px" }}>
