@@ -40,3 +40,29 @@
 .read-the-docs {
   color: #888;
 } */
+.navbar {
+  width: 100%;
+
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom dark styles for Offcanvas */
+.offcanvas-dark .offcanvas-header,
+.offcanvas-dark .offcanvas-body {
+  background-color: #212529 !important;
+  /* Dark background color */
+  color: white !important;
+  /* White text color */
+}
+
+/* Adjust close button color */
+.offcanvas-dark .btn-close {
+  filter: invert(1);
+  /* Makes the close button icon light-colored */
+}

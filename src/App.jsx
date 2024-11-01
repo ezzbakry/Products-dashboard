@@ -49,7 +49,7 @@ function App() {
         },
         { path: "login", element: <Login /> },
         { path: "contact", element: <Protectedcomponent><Contact /></Protectedcomponent> },
-        { path: "products", element: <Protectedcomponent><Products></Products></Protectedcomponent> },
+        { path: "products", element: <Products></Products> },
         {path:"register",element:<Register></Register>},
         { path: "productDetails/:id", element: <Productdetails />, loader: loaderdetails, errorElement: <ErrorBoundary></ErrorBoundary> }
       ],

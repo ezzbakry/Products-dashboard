@@ -20,6 +20,7 @@ export default function Products() {
   const indexofFirstproduct = indexofLastproduct - itemsofpage
   const currentProducts = product.slice(indexofFirstproduct, indexofLastproduct)
   const totalpages = Math.ceil(product.length / itemsofpage)
+  console.log(currentProducts)
   const handlePagechange = (pagenumber) => {
     setcurrentpage(pagenumber)
   }
@@ -40,10 +41,10 @@ export default function Products() {
     ))
   }, [currentProducts])
   return <>
-    Total receipt : {total}
+    <p style={{marginLeft:"10px"}}> Total receipt : {total}</p>
     {(load) ? <div className="d-flex justify-content-around">
       <PacmanLoader size={66} /></div> :
-      <Row xs={2} md={4} className="g-4">
+      <Row xs={1} sm={2} md={3} lg={4} className="g-4" justify-content-center>
         {memoiazedproducts}
 
       </Row>}

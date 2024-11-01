@@ -14,7 +14,7 @@ const reducer = (state, action) => {
         case 'increase':
             return { counter: state.counter + 1 }
         case 'reset':
-            return initialcounter 
+            return initialcounter
         case 'decrease':
             return { counter: state.counter - 1 }
 
@@ -44,103 +44,78 @@ export default function Home() {
     // const reducecounter = () => {
     //     dispatch(reduceCounter())
     // }
-    const change = () => {
-        dispatch(changebg((bg == "white") ? "black" : "white"))
-        dispatch(changecol((f == "black") ? 'white' : "black"))
-    }
-
     return <>
-        <div style={{ display: "flex" }}>
-            <div style={{ margin: "40px" }}>
-                <p>{name}</p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
+            {/* Section for name and language buttons */}
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px", width: "100%" }}>
+                <div style={{ margin: "20px" }}>
+                    <p>{name}</p>
+                    <button
+                        className="btn btn-success"
+                        onClick={() => {
+                            tooglename();
+                        }}
+                    >
+                        Change Name
+                    </button>
+                </div>
+                <div style={{ margin: "20px" }}>
+                    <p>{lang}</p>
+                    <button
+                        className="btn btn-success"
+                        onClick={() => {
+                            togglelang();
+                        }}
+                    >
+                        Change Language
+                    </button>
+                </div>
+            </div>
 
+            {/* Counter display */}
+            <p style={{ textAlign: "center", margin: "20px 0" }}>Counter: {state.counter}</p>
+
+            {/* Increase, Decrease, Reset buttons */}
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px", width: "100%" }}>
                 <button
                     className="btn btn-success"
                     onClick={() => {
-                        tooglename();
+                        disp({ type: "increase" });
                     }}
                 >
-                    change name
+                    Increase
                 </button>
-            </div>
-            <div style={{ margin: "40px" }}>
-                <p>{lang}</p>
-
                 <button
                     className="btn btn-success"
                     onClick={() => {
-                        togglelang();
+                        disp({ type: "decrease" });
                     }}
                 >
-                    change language
+                    Decrease
+                </button>
+                <button
+                    className="btn btn-success"
+                    onClick={() => {
+                        disp({ type: "reset" });
+                    }}
+                >
+                    Reset
                 </button>
             </div>
-            <p style={{textAlign:"center",justifyItems:"center"}}> counter : {state.counter}</p>
-            <div style={{ marginTop: "80px" ,display:"flex",}} >
-                <div style={{marginRight:"40px"}}>
-                    <button
-                        className="btn btn-success"
-                        onClick={() => {
-                            disp({ type: "increase" })
-                        }}
-                    >
-                        Increase
-                    </button>
-                </div>
-                <div style={{marginRight:"40px"}}>
-                    {/* <p>{state.counter}</p> */}
-                    <button
-                        className="btn btn-success"
-                        onClick={() => {
-                            disp({ type: "decrease" })
-                        }}
-                    >
-                        decrease
-                    </button>
 
-                </div>
-                <div style={{marginRight:"40px"}}>
-                    <button
-                        className="btn btn-success"
-                        onClick={() => {
-                            disp({ type: "reset" })
-                        }}
-                    >
-                        reset
-                    </button>
-                </div>
-
-            </div>
-
-        </div>
-        <div style={{ display: "flex" }}>
-            <div style={{ marginLeft: "40px" }}>
+            {/* Context-based name change button */}
+            <div style={{ marginTop: "20px" }}>
                 <p>{Name}</p>
                 <button
                     className="btn btn-success"
                     onClick={() => {
-                        setname((Name == "Ezz") ? "Amer" : "Ezz")
+                        setname(Name === "Ezz" ? "Amer" : "Ezz");
                     }}
                 >
-                    change name with context
+                    Change Name with Context
                 </button>
             </div>
-
-
-
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
     </>
 
